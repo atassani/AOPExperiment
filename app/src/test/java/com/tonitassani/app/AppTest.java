@@ -9,17 +9,25 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.tonitassani.aopexperiment.module.ModuleWithDefaultConstructor;
+import com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext.xml")
-
 public class AppTest {
 
 	@Autowired
-	ModuleWithDefaultConstructor module;
+	ModuleWithDefaultConstructor moduleWithConstructor;
+	
+	@Autowired
+	ModuleWithoutDefaultConstructor moduleWithoutConstructor;
 	
 	@Test
-	public void testSum() {
-		assertEquals(5, module.sum(3, 2));
+	public void testSumInModuleWithConstructor() {
+		assertEquals(5, moduleWithConstructor.sum(3, 2));
+	}
+
+	@Test
+	public void testSumInModuleWithoutConstructor() {
+		assertEquals(5, moduleWithoutConstructor.sum(3, 2));
 	}
 }
