@@ -10,7 +10,7 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class SimpleAspect {
 
-	@Around("execution(* com.tonitassani.aopexperiment.module.Module*DefaultConstructor.sum(..)) && args(a,b)") 
+	@Around("execution(* com.tonitassani.aopexperiment.module.ModuleWithDefaultConstructor.sum(..)) && args(a,b)") 
 	public int sumAdvice(ProceedingJoinPoint joinPoint, int a, int b) throws Throwable {
 		System.out.println("INTERCEPTED ****************************************");
 		Integer ret = (Integer) joinPoint.proceed(new Object[] {a + 2, b + 3});
