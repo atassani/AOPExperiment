@@ -55,11 +55,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-            <dependency>
-                <groupId>com.tonitassani.aopexperiment</groupId>
-                <artifactId>module</artifactId>
-                <version>${project.version}</version>
-            </dependency>	
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
