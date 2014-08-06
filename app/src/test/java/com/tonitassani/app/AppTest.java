@@ -2,6 +2,7 @@ package com.tonitassani.app;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,15 @@ public class AppTest {
 	@Test
 	public void testSumInModuleWithoutConstructor() {
 		assertEquals(5, moduleWithoutConstructor.sum(3, 2));
+	}
+	
+	@Test
+	public void testSumObjectInModuleWithConstructor() {
+		assertEquals(Integer.valueOf(5), moduleWithConstructor.sumObjects(3, 2));
+	}
+
+	@Test
+	public void testSumObjectInModuleWithoutConstructor() {
+		assertEquals(Integer.valueOf(5), moduleWithoutConstructor.sumObjects(3, 2));
 	}
 }

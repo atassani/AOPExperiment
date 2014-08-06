@@ -22,6 +22,17 @@
 			</dependency>
 		</dependencies>	
 		</profile>
+		<profile>
+			<id>aspectjaop</id>
+			<dependencies>
+			<dependency>
+				<groupId>com.tonitassani.aopexperiment</groupId>
+				<artifactId>aspectjaop</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>	
+		</profile>
+		
 	</profiles>
 	
 	<dependencies>
@@ -70,6 +81,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-		</dependency>		
+		</dependency>
+						
 	</dependencies>
 </project>
