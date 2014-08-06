@@ -10,4 +10,19 @@
 	<artifactId>springaop</artifactId>
 	<packaging>jar</packaging>
 	<name>springaop</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-aop</artifactId> -->
+<!-- 		</dependency>		 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+	</dependencies>		
 </project>

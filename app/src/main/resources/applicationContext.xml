@@ -14,9 +14,9 @@
 	<context:component-scan base-package="com.tonitassani.aopexperiment.module">
 		<context:exclude-filter type="regex" expression=".*Without.*"/>
 	</context:component-scan>
+	<context:component-scan base-package="com.tonitassani.aopexperiment.springaop"/>
 	
 	<aop:aspectj-autoproxy/>
-	<aop:config proxy-target-class="true" />
 
 	<bean id="moduleWithoutDefaultConstructor" class="com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor">
 	  <constructor-arg value="2" />
