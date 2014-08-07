@@ -11,12 +11,14 @@
 ">
 
 	<context:annotation-config />
-	<context:load-time-weaver  aspectj-weaving="autodetect"/>
+<!-- 	<context:load-time-weaver  aspectj-weaving="autodetect"/> -->
 <!-- 	<context:spring-configured/> -->
+	<context:load-time-weaver  aspectj-weaving="autodetect"/>
+	<aop:aspectj-autoproxy/>
+
 	<context:component-scan base-package="com.tonitassani.aopexperiment.module"/>
 	<context:component-scan base-package="com.tonitassani.aopexperiment.springaop"/>
 	
-	<aop:aspectj-autoproxy/>
 
 	<bean id="moduleWithoutDefaultConstructor" class="com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor">
 	  <constructor-arg value="2" />

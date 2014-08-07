@@ -1,5 +1,8 @@
 package com.tonitassani.aopexperiment.module;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ModuleWithoutDefaultConstructor {
 
 	public ModuleWithoutDefaultConstructor(int ignored) {}

@@ -20,6 +20,16 @@
 				<artifactId>springaop</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<scope>test</scope>
+			</dependency>			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<scope>test</scope>
+			</dependency>
 		</dependencies>	
 		</profile>
 		<profile>
@@ -30,6 +40,16 @@
 				<artifactId>aspectjaop</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<scope>test</scope>
+			</dependency>			
 		</dependencies>	
 		</profile>
 	</profiles>
