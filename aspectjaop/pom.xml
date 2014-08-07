@@ -22,6 +22,19 @@
                 	<target>1.6</target>
                 	<encoding>UTF-8</encoding>
                 	<complianceLevel>1.6</complianceLevel>
+                	<showWeaveInfo>true</showWeaveInfo>
+                	<Xlint>ignore</Xlint>
+                	<verbose>true</verbose>
+                	<aspectLibraries>
+					   <aspectLibrary>
+					       <groupId>com.tonitassani.aopexperiment</groupId>
+					       <artifactId>module</artifactId>
+					   </aspectLibrary>
+<!-- 					   <aspectLibrary> -->
+<!-- 					       <groupId>org.springframework</groupId> -->
+<!-- 					       <artifactId>spring-aspects</artifactId> -->
+<!-- 					   </aspectLibrary> -->
+					</aspectLibraries>
                 	<sources>
                 		<source>
                 			<basedir>${basedir}/src/main/java</basedir>
@@ -39,7 +52,6 @@
                 </configuration>
 				<executions>
 		          <execution>
-		            <phase>process-sources</phase>
 		            <goals>
 		              <goal>compile</goal>
 		            </goals>
@@ -58,6 +70,10 @@
 			<artifactId>aspectjweaver</artifactId>
 			<scope>compile</scope>
 		</dependency>        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>            
+        </dependency>
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
