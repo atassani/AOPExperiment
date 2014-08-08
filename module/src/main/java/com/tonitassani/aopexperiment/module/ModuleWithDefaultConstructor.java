@@ -10,12 +10,4 @@ public class ModuleWithDefaultConstructor {
 	public int sum(int a, int b) {
 		return a+b;
 	}
-	
-	public Integer sumObjects(Integer a, Integer b) {
-		return a+b;
-	}
-	
-	public void echoHello() {
-		System.out.println("Hello");
-	}
 }

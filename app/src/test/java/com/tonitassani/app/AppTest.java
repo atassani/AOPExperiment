@@ -30,14 +30,4 @@ public class AppTest {
 	public void testSumInModuleWithoutConstructor() {
 		assertEquals(5, moduleWithoutConstructor.sum(3, 2));
 	}
-	
-	@Test
-	public void testSumObjectInModuleWithConstructor() {
-		assertEquals(Integer.valueOf(5), moduleWithConstructor.sumObjects(3, 2));
-	}
-
-	@Test
-	public void testSumObjectInModuleWithoutConstructor() {
-		assertEquals(Integer.valueOf(5), moduleWithoutConstructor.sumObjects(3, 2));
-	}
 }
