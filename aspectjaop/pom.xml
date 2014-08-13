@@ -27,12 +27,12 @@
                 	<noInline>true</noInline>
                 	<verbose>true</verbose>
                 	<outxml>true</outxml>
-                	<outxmlfile>the_aop_file.xml</outxmlfile>
+                	<outxmlfile>META-INF/aop.xml</outxmlfile>
                 	<Xset>
                 		<weaveJavaPackages>true</weaveJavaPackages>
                 		<weaveJavaxPackages>true</weaveJavaxPackages>
                 	</Xset>
-                	<aspectDirectory>src/main/java</aspectDirectory> <!--  defaults to src/main/aspect -->
+                	<aspectDirectory>src/main/aspects</aspectDirectory> <!--  defaults to src/main/aspect -->
                 	<aspectLibraries>
 					   <aspectLibrary>
 					       <groupId>com.tonitassani.aopexperiment</groupId>
@@ -45,7 +45,7 @@
 					</aspectLibraries>
                 	<sources>
                 		<source>
-                			<basedir>${basedir}/src/main/java</basedir>
+                			<basedir>${basedir}/src/main/aspects</basedir>
                 			<includes>
                 				<include>**/*.aj</include>
                 			</includes>
@@ -82,12 +82,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>            
         </dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-			<version>3.1</version>
-			<scope>compile</scope>
-		</dependency>        
+<!-- 		<dependency> -->
+<!-- 			<groupId>cglib</groupId> -->
+<!-- 			<artifactId>cglib-nodep</artifactId> -->
+<!-- 			<version>3.1</version> -->
+<!-- 			<scope>compile</scope> -->
+<!-- 		</dependency>         -->
 		<dependency>
 			<groupId>com.tonitassani.aopexperiment</groupId>
             <artifactId>module</artifactId>
