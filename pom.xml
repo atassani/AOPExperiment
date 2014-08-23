@@ -18,10 +18,10 @@
     </properties>
 
     <modules>
-        <module>app</module>
-        <module>aspectjaop</module>
         <module>module</module>
+        <module>aspectjaop</module>
         <module>springaop</module>
+        <module>app</module>
     </modules>
     
     <build>

@@ -10,11 +10,6 @@ public aspect AspectJSimpleAspect {
 		call( * com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor.*(..));
 		//call( * com.thomsonreuters.nge.admin.NgeFacade*.authenticate(String, String, String));
 		
-	pointcut sumObjectPointcut(Integer a, Integer b):
-		args(a, b) &&
-		call( * com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor.*(..));
-		//call( * com.thomsonreuters.nge.admin.NgeFacade*.authenticate(String, String, String));
-
 	pointcut anyMethodPointcut():
 		call( * com.tonitassani..*.*(..));
 	
@@ -24,12 +19,7 @@ public aspect AspectJSimpleAspect {
 		return res;
 	}
 
-	Integer around(Integer a, Integer b): sumObjectPointcut(a, b) {
-		System.out.println("INTERCEPCTED (AspecJ)**********************");
-		Integer res = proceed(new Integer(a.intValue() + 2), new Integer(b.intValue() + 3));
-		return res;
-	}
-	
+/*
 	Object around(): anyMethodPointcut() {
  	  	System.out.println("Intercepted message: " + thisJoinPointStaticPart.getSignature().getName());
       	System.out.println("in class: " + thisJoinPointStaticPart.getSignature().getDeclaringType().getName());
@@ -48,5 +38,6 @@ public aspect AspectJSimpleAspect {
              " = " +            args[i]);
       }
    }
+*/
 }
 
