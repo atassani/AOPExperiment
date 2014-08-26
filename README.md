@@ -49,3 +49,14 @@ and
 	
 	mvn help:all-profiles
 	
+Activate AOP
+------------
+In app/main/resources/applicationContext.xml the heading has to contain AOP references:
+
+    xmlns:aop="http://www.springframework.org/schema/aop"
+
+and
+
+    http://www.springframework.org/schema/aop 		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+
+	
