@@ -18,6 +18,8 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2</version>
             </plugin>
+	<!-- In case you want to run tests using AOP with instrumentation -->
+	<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -27,8 +29,10 @@
                     </argLine>
                 </configuration>
 			</plugin>
+	-->
         </plugins>
     </build>
+	
 	
 	<profiles>
 		<profile>
@@ -67,54 +71,33 @@
 			</dependency>			
 		</dependencies>	
 		</profile>
-<!-- 		<profile> -->
-<!--             <id>demo-instrument</id> -->
-<!--             <build> -->
-<!--                 <plugins> -->
-<!--                     <plugin> -->
-<!--                         <groupId>org.apache.maven.plugins</groupId> -->
-<!--                         <artifactId>maven-jar-plugin</artifactId> -->
-<!--                         <version>2.3.1</version> -->
-<!--                         <configuration> -->
-<!--                           <useDefaultManifestFile>true</useDefaultManifestFile> -->
-<!--                           <archive> -->
-<!--                               <manifestEntries> -->
-<!--                                   <Can-Redefine-Classes>true</Can-Redefine-Classes> -->
-<!--                                   <Premain-Class>example.instrument.MyJavaAgent</Premain-Class> -->
-<!--                               </manifestEntries> -->
-<!--                           </archive> -->
-<!--                         </configuration> -->
-<!--                     </plugin> -->
-<!--                     <plugin> -->
-<!--                         <groupId>org.codehaus.mojo</groupId> -->
-<!--                         <artifactId>exec-maven-plugin</artifactId> -->
-<!--                         <executions> -->
-<!--                             <execution> -->
-<!--                                 <id>demo-instrument</id> -->
-<!--                                 <goals> -->
-<!--                                     <goal>exec</goal> -->
-<!--                                 </goals> -->
-<!--                             </execution> -->
-<!--                         </executions> -->
-<!--                         <configuration> -->
-<!--                             <executable>java</executable> -->
-<!--                             <arguments> -->
-<!--                                 <argument> -->
-<!--                                     -javaagent:${project.build.directory}${file.separator}${project.build.finalName}.jar -->
-<!--                                 </argument> -->
-<!--                                 <argument>-cp</argument> -->
-<!--                                 <classpath/> -->
-<!--                                 <argument>example.instrument.MyMainClass</argument> -->
-<!--                             </arguments> -->
-<!--                         </configuration> -->
-<!--                     </plugin> -->
-<!--                 </plugins> -->
-<!--             </build> -->
-<!--         </profile> -->
         <profile>
             <id>exec-app</id>
+            <activation>
+            	<activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
+		            <plugin>
+		                <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-antrun-plugin</artifactId>
+		                <version>1.7</version>
+		            	<executions>
+		            		<execution>
+		            			<id>print-classpath</id>
+		            			<phase>install</phase>
+		            			<configuration>
+			            			<target>
+			            				<property name="compile_classpath" refid="maven.compile.classpath"/>
+			            				<echo message="compile classpath: ${compile_classpath}" />
+			            			</target>
+		            			</configuration>
+		            			<goals>
+		            				<goal>run</goal>
+		            			</goals>
+		            		</execution>
+		            	</executions>
+		            </plugin>                
                     <plugin>
                       <groupId>org.apache.maven.plugins</groupId>
                       <artifactId>maven-dependency-plugin</artifactId>
@@ -137,19 +120,20 @@
                         <version>1.1.1</version>
                         <executions>
                             <execution>
-                            	<phase>test</phase>
+                            	<phase>install</phase>
                                 <goals>
-                                    <goal>java</goal>
+                                    <goal>exec</goal>
                                 </goals>
                             </execution>
                         </executions>
                         <configuration>
-                            <executable>java</executable>
+                        	<executable>java</executable>
                             <mainClass>com.tonitassani.aopexperiment.app.App</mainClass>
                             <arguments>
                                 <argument>-javaagent:${settings.localRepository}/org/springframework/spring-instrument/${spring.version}/spring-instrument-${spring.version}.jar</argument> 
-<!--                                 <argument>-cp</argument> -->
-                                <argument>com.tonitassani.aopexperiment.app.App</argument>                               
+                                <argument>-cp</argument>
+              					<classpath/>
+                                <argument>com.tonitassani.aopexperiment.app.App</argument>                                
                             </arguments>
                         </configuration>
                     </plugin>
