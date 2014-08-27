@@ -10,6 +10,7 @@
 	<artifactId>aspectjaop</artifactId>
 	<packaging>jar</packaging>
 	<name>aspectjaop</name>
+	<!-- 
 	<build>
 		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 		<plugins>
@@ -23,7 +24,7 @@
                 	<encoding>UTF-8</encoding>
                 	<complianceLevel>1.6</complianceLevel>
                 	<showWeaveInfo>true</showWeaveInfo>
-                	<Xlint>warning</Xlint> <!--  ignore -->
+                	<Xlint>warning</Xlint> 
                 	<noInline>true</noInline>
                 	<verbose>true</verbose>
                 	<outxml>true</outxml>
@@ -32,16 +33,16 @@
                 		<weaveJavaPackages>true</weaveJavaPackages>
                 		<weaveJavaxPackages>true</weaveJavaxPackages>
                 	</Xset>
-                	<aspectDirectory>src/main/aspects</aspectDirectory> <!--  defaults to src/main/aspect -->
+                	<aspectDirectory>src/main/aspects</aspectDirectory> 
                 	<aspectLibraries>
 					   <aspectLibrary>
 					       <groupId>com.tonitassani.aopexperiment</groupId>
 					       <artifactId>module</artifactId>
 					   </aspectLibrary>
-<!-- 					   <aspectLibrary> -->
-<!-- 					       <groupId>org.springframework</groupId> -->
-<!-- 					       <artifactId>spring-aspects</artifactId> -->
-<!-- 					   </aspectLibrary> -->
+					   <aspectLibrary>
+					       <groupId>org.springframework</groupId>
+					       <artifactId>spring-aspects</artifactId>
+					   </aspectLibrary>
 					</aspectLibraries>
                 	<sources>
                 		<source>
@@ -68,6 +69,7 @@
             </plugin>
          </plugins>
 	</build>
+	-->
 	<dependencies>
         <dependency>
             <groupId>org.aspectj</groupId>

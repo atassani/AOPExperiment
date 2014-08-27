@@ -7,8 +7,7 @@ public aspect AspectJSimpleAspect {
 
 	pointcut sumPointcut(int a, int b):
 		args(a, b) &&
-		call( * com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor.*(..));
-		//call( * com.thomsonreuters.nge.admin.NgeFacade*.authenticate(String, String, String));
+		call( * com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor.sum(..));
 		
 	pointcut anyMethodPointcut():
 		call( * com.tonitassani..*.*(..));
@@ -19,7 +18,6 @@ public aspect AspectJSimpleAspect {
 		return res;
 	}
 
-/*
 	Object around(): anyMethodPointcut() {
  	  	System.out.println("Intercepted message: " + thisJoinPointStaticPart.getSignature().getName());
       	System.out.println("in class: " + thisJoinPointStaticPart.getSignature().getDeclaringType().getName());
@@ -38,6 +36,5 @@ public aspect AspectJSimpleAspect {
              " = " +            args[i]);
       }
    }
-*/
 }
 

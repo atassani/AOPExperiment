@@ -9,7 +9,7 @@ public class SimpleAspect {
 
 	@Around("execution(* com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor.sum(..)) && args(a,b)") 
 	public int sumAdvice(ProceedingJoinPoint joinPoint, int a, int b) throws Throwable {
-		System.out.println("INTERCEPTED ****************************************");
-		return (Integer)joinPoint.proceed(new Object[] {a + 2, b + 3});
+		System.out.println("ASPECTJ INTERCEPTED ****************************************");
+		return (Integer)joinPoint.proceed(new Integer[] {a + 2, b + 3});
 	}
 }

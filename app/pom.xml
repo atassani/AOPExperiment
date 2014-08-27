@@ -65,7 +65,28 @@
 			<id>aspectjaop</id>
 			<properties>
 				<springfile>/applicationContext_aspectjaop.xml</springfile>
+				<javaagent.property>-javaagent:${settings.localRepository}/org/springframework/spring-instrument/${spring.version}/spring-instrument-${spring.version}.jar</javaagent.property>
 			</properties>
+			<build>
+				<plugins>
+					<plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-dependency-plugin</artifactId>
+                      <executions>
+                        <execution>
+                          <id>copy-dependencies</id>
+                          <phase>package</phase>
+                          <goals>
+                            <goal>copy-dependencies</goal>
+                          </goals>
+                          <configuration>
+                            <includeArtifactIds>spring-aspects</includeArtifactIds>
+                          </configuration>
+                        </execution>
+                      </executions>
+                    </plugin>
+				</plugins>
+			</build>
 			<dependencies>
 				<dependency>
 					<groupId>com.tonitassani.aopexperiment</groupId>
@@ -135,22 +156,6 @@
 		            		</execution>
 		            	</executions>
 		            </plugin>                
-<!--                     <plugin> -->
-<!--                       <groupId>org.apache.maven.plugins</groupId> -->
-<!--                       <artifactId>maven-dependency-plugin</artifactId> -->
-<!--                       <executions> -->
-<!--                         <execution> -->
-<!--                           <id>copy-dependencies</id> -->
-<!--                           <phase>package</phase> -->
-<!--                           <goals> -->
-<!--                             <goal>copy-dependencies</goal> -->
-<!--                           </goals> -->
-<!--                           <configuration> -->
-<!--                             <includeArtifactIds>spring-aspects</includeArtifactIds> -->
-<!--                           </configuration> -->
-<!--                         </execution> -->
-<!--                       </executions> -->
-<!--                     </plugin> -->
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
