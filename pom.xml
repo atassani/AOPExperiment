@@ -16,6 +16,7 @@
         <junit.version>4.11</junit.version>
         <aspectj.version>1.7.3</aspectj.version>
         <javaagent.property>-Ddummy=d</javaagent.property>
+        <springfile>/applicationContext.xml</springfile>
     </properties>
 
     <modules>

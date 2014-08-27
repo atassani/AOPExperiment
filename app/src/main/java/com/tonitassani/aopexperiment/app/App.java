@@ -10,7 +10,12 @@ public class App {
 
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
+		if (args.length != 1) {
+			System.err.println("ERROR: Missing parameter Spring Application Context file");
+			System.exit(-1);
+		}
+		String springFile = args[0];
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(springFile);
 		ModuleWithoutDefaultConstructor moduleWithout = context.getBean("moduleWithoutDefaultConstructor", ModuleWithoutDefaultConstructor.class);
 		ModuleWithDefaultConstructor moduleWith =       context.getBean("moduleWithDefaultConstructor", ModuleWithDefaultConstructor.class);
 		System.out.println("");

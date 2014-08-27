@@ -59,4 +59,5 @@ and
 
     http://www.springframework.org/schema/aop 		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 
+For Spring AOP also in `applicationContext.xml` there must be the following: `<aop:aspectj-autoproxy />`
 	
