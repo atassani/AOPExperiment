@@ -14,6 +14,7 @@
         <spring.version>3.2.3.RELEASE</spring.version>
         <javax.inject.version>1</javax.inject.version>
         <junit.version>4.11</junit.version>
+        <log4j.version>1.2.15</log4j.version>
         <aspectj.version>1.7.3</aspectj.version>
         <javaagent.property>-Ddummy=d</javaagent.property>
         <springfile>/applicationContext.xml</springfile>
@@ -24,6 +25,7 @@
         <module>aspectjaop</module>
         <module>springaop</module>
         <module>app</module>
+        <module>webapp</module>
     </modules>
     
     <build>
@@ -104,10 +106,44 @@
 			</dependency>	
 			<dependency>
 				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
 				<scope>test</scope>
-			</dependency>			
+			</dependency>		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>jmxtools</artifactId>
+					<groupId>com.sun.jdmk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxri</artifactId>
+					<groupId>com.sun.jmx</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jms</artifactId>
+					<groupId>javax.jms</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>				
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>

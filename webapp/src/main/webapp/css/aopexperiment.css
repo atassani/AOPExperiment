@@ -1,0 +1,89 @@
+body
+{
+	font-size:14px;
+	color:#000000;
+	background-color:#ffffff;
+	margin:10px 40px 10px 40px;
+	overflow:auto;
+}
+
+body,table,ul {
+	font-family:verdana,helvetica,arial,sans-serif;
+}
+
+table {
+    font-size:12px;
+	border-width: 0px;
+	border-spacing: 1px;
+	border-style: solid;
+	border-color: black;
+	border-collapse: collapse;
+	background-color: white;
+	padding-top:8px;
+	padding-bottom:8px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+table td {
+	border-width: 1px 1px 1px 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: gray;
+	background-color: white;
+	vertical-align: top;
+}
+
+table td.title {
+    background-color: #ffffff;
+	font-weight: bold;
+	border-width: 0px 0px 1px 0px;
+	padding-top: 20px;
+}
+
+table td.oddd {
+    background-color: #ffffff;
+}
+
+table td.even {
+    background-color:#ffffcc;
+}
+
+table#summary  th {
+  font-weight: bold; 
+  text-align: left;
+  border-width: 0px 1px 1px 0px;
+  border-color: gray;
+  border-style: solid;
+  vertical-align: top;
+}
+
+table#summary  td {
+  border-width: 0px 0px 1px 0px
+}
+
+#menu {
+	font-size:12px;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	white-space: nowrap;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu li a {
+	padding: 0.1em 0.5em;
+	background: #fc6; /* ff7500*/
+	color: #000;
+	text-decoration: none;
+	float: left;
+	border: 1px solid #000;
+}
+
+#menu li a:hover {
+	background: #08c;
+	color: #fff;
+}
