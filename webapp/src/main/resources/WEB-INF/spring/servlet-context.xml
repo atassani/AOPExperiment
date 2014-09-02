@@ -21,6 +21,4 @@
 	
 	<mvc:resources location="/" mapping="/resources/**"/>
 	
-	<mvc:view-controller path="/init" view-name="home"/>
-	
 </beans>

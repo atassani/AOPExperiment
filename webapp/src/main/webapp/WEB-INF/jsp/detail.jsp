@@ -12,5 +12,7 @@
 	<span>
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu lorem ante, eget egestas enim. Pellentesque pulvinar, enim sit amet commodo tincidunt, massa felis posuere enim, ac condimentum mauris nisl ut eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in orci ligula. Praesent lorem risus, fermentum et consectetur vel, dictum non dui. Vestibulum tellus elit, mollis a posuere ac, feugiat quis nulla. Nullam libero felis, rutrum vel vestibulum id, luctus vel mauris.
 	</span>
+	<p>Sum Without: ${sumWithout}</p>
+	<p>Sum With: ${sumWith}</p>
 </body>
 </html>

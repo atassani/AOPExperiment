@@ -1,31 +1,26 @@
 package com.tonitassani.aopexperiment.webapp.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.tonitassani.aopexperiment.webapp.beans.Product;
-import com.tonitassani.aopexperiment.webapp.service.ProductsService;
+import com.tonitassani.aopexperiment.module.ModuleWithDefaultConstructor;
+import com.tonitassani.aopexperiment.module.ModuleWithoutDefaultConstructor;
 
 @Controller
 public class AopExperimentController {
 
 	@Autowired
-	ProductsService productService;
+	ModuleWithDefaultConstructor 	moduleWith;
+	@Autowired
+	ModuleWithoutDefaultConstructor moduleWithout;
 
-	@RequestMapping("/home")
-	public String helloWorld() {
-		return "home";
-	}
-
-	@RequestMapping("/list")
-	public ModelAndView listAll() {
-		ModelAndView modelAndView = new ModelAndView("list");
-		List<Product> productList = productService.getAllProducts();
-		modelAndView.addObject("productList", productList);
+	@RequestMapping("/detail")
+	public ModelAndView detail() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("sumWithout", moduleWithout.sum(3, 5));
+		modelAndView.addObject("sumWith", 	 moduleWith.sum(3, 5));
 		return modelAndView;
 	}
 
