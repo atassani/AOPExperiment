@@ -1,8 +1,30 @@
 AOP Exeperiment
 ===============
 
-...
+This project contains simple examples of using AOP in Java. All experiments are *Java*, *Spring Framework* and built 
+with *Maven*.
 
+Code consists on:
+
+* *module*: The basic module that will be intercepted by AOP. As long as I found that AOP is harder for classes that 
+do not have default constructor, there are two module classes, one with default constructor and another without. Both classes
+contain just one method that sums two integers (a+b)
+
+* *springaop*: Contains the implementation of Aspects using Spring AOP Proxies. The aspect is an Around advice that modifies 
+the sum to be (a+2)+(b+3).
+
+* *aspecjaop*: Contains the implementation of Aspects using AspectJ and Load Time Weaving (LTW). The implementation is similar
+as in `springaop` project.
+
+* *app*: An standalone Java application that uses the Module and performs a sum(3,5) using both classes (with and without 
+constructor). If built with the `exec-app` profile, it will execute the application. If built with the `springaop` profile, 
+it will include the Aspects in that module, and same thing will happen with `aspectjaop`. You cannot use woth AOP implementations
+in this example. In each case the application will use a different `applicationContext.xml` file.
+Initially, instead of an application, Unit Tests were used, but they used a different flow for managing dependencies and Java Agent, so 
+now it is a regular Application, even though the code for tests is still there.
+The execution including the JavaAgent in the LTW example is managed in the `pom.xlm`.
+
+* *webapp*: A Web application using the module. It has only be tested in JBoss 5.1.0.GA. LTW is not working.
 
 Executing
 ---------
@@ -38,6 +60,8 @@ Directly using the `exec:java` plugin with the created profile `exec-app`, defin
 The execution goal will be run in the `install` phase, and it will use the Spring instrumentation (`-javaagent`).
 It is easier than building the whole execution command line.  
 
+In the `exec-app` profile it has been added an execution of `maven-antrun-plugin` to show the classpath.
+
 Profiles
 --------
 
@@ -49,8 +73,8 @@ and
 	
 	mvn help:all-profiles
 	
-Activate AOP
-------------
+Activate Spring AOP
+-------------------
 In app/main/resources/applicationContext.xml the heading has to contain AOP references:
 
     xmlns:aop="http://www.springframework.org/schema/aop"
@@ -61,6 +85,21 @@ and
 
 For Spring AOP also in `applicationContext.xml` there must be the following: `<aop:aspectj-autoproxy />`
 
+Activate LTW AspectJ AOP
+------------------------
+`aop` namespace has to be included in applicationContext.xml like in Spring AOP.
+You have to include in the same file also
+	<context:spring-configured/>
+so that AspectJ can be used. Documentation can be found in [Spring documentation](http://docs.spring.io/autorepo/docs/spring/3.0.6.RELEASE/spring-framework-reference/html/aop.html).
+
+
+You also have to enable	Load Time Weaving:
+	<context:load-time-weaver  aspectj-weaving="autodetect"/>
+	
+Apart, you have to run the application with the proper `javaagent`:
+	-javaagent:/tmp/spring-instrument-3.2.3.RELEASE.jar		
+
+
 Debugging JBOSS
 ---------------
 Just for debugging JBOSS and seeing what is being weaved I have tried different options. These are some arguments I have been playing with:
@@ -69,4 +108,5 @@ Just for debugging JBOSS and seeing what is being weaved I have tried different 
 
 However, JBOSS with AspectJ is not working for me in JBoss 5.1
 
+	
 	
