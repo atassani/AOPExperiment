@@ -6,17 +6,17 @@ with *Maven*.
 
 Code consists on:
 
-* *module*: The basic module that will be intercepted by AOP. As long as I found that AOP is harder for classes that 
+* **module**: The basic module that will be intercepted by AOP. As long as I found that AOP is harder for classes that 
 do not have default constructor, there are two module classes, one with default constructor and another without. Both classes
 contain just one method that sums two integers (a+b)
 
-* *springaop*: Contains the implementation of Aspects using Spring AOP Proxies. The aspect is an Around advice that modifies 
+* **springaop**: Contains the implementation of Aspects using Spring AOP Proxies. The aspect is an Around advice that modifies 
 the sum to be (a+2)+(b+3).
 
-* *aspecjaop*: Contains the implementation of Aspects using AspectJ and Load Time Weaving (LTW). The implementation is similar
+* **aspecjaop**: Contains the implementation of Aspects using AspectJ and Load Time Weaving (LTW). The implementation is similar
 as in `springaop` project.
 
-* *app*: An standalone Java application that uses the Module and performs a sum(3,5) using both classes (with and without 
+* **app**: An standalone Java application that uses the Module and performs a sum(3,5) using both classes (with and without 
 constructor). If built with the `exec-app` profile, it will execute the application. If built with the `springaop` profile, 
 it will include the Aspects in that module, and same thing will happen with `aspectjaop`. You cannot use woth AOP implementations
 in this example. In each case the application will use a different `applicationContext.xml` file.
@@ -24,7 +24,7 @@ Initially, instead of an application, Unit Tests were used, but they used a diff
 now it is a regular Application, even though the code for tests is still there.
 The execution including the JavaAgent in the LTW example is managed in the `pom.xlm`.
 
-* *webapp*: A Web application using the module. It has only be tested in JBoss 5.1.0.GA. LTW is not working.
+* **webapp**: A Web application using the module. It has only be tested in JBoss 5.1.0.GA. LTW is not working.
 
 Executing
 ---------
@@ -89,14 +89,18 @@ Activate LTW AspectJ AOP
 ------------------------
 `aop` namespace has to be included in applicationContext.xml like in Spring AOP.
 You have to include in the same file also
+
 	<context:spring-configured/>
+	
 so that AspectJ can be used. Documentation can be found in [Spring documentation](http://docs.spring.io/autorepo/docs/spring/3.0.6.RELEASE/spring-framework-reference/html/aop.html).
 
 
 You also have to enable	Load Time Weaving:
+
 	<context:load-time-weaver  aspectj-weaving="autodetect"/>
 	
 Apart, you have to run the application with the proper `javaagent`:
+
 	-javaagent:/tmp/spring-instrument-3.2.3.RELEASE.jar		
 
 
