@@ -12,12 +12,12 @@
 	<context:annotation-config />
 	
 	<!-- vvvv Following lines enable Spring AOP -->
-	<!--  	<aop:aspectj-autoproxy />	 -->
+	<aop:aspectj-autoproxy />	
 	<!-- ^^^^ -->
 	
 	<!-- vvvv Following lines enable AspectJ AOP -->
-	<context:load-time-weaver aspectj-weaving="autodetect"/>
-	<context:spring-configured/>
+<!-- 	<context:load-time-weaver aspectj-weaving="autodetect"/> -->
+<!-- 	<context:spring-configured/> -->
 	<!-- ^^^^ -->
 	
 	<context:component-scan base-package="com.tonitassani.aopexperiment.module"/>
