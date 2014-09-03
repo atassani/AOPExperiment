@@ -65,8 +65,7 @@ Debugging JBOSS
 ---------------
 Just for debugging JBOSS and seeing what is being weaved I have tried different options. These are some arguments I have been playing with:
 
-	export JAVA_OPTS="-Xms256m -Xss512m -Xmx512m -Djava.awt.headless=true -XX:MaxPermSize=256m -server -Daj.weaving.verbose=true
--Dorg.aspectj.weaver.loadtime.configuration=META-INF/aop.xml -Dorg.aspectj.weaver.showWeaveInfo=true -Dorg.aspectj.tracing.enabled=true -Dorg.aspectj.tracing.factory=default"
+	export JAVA_OPTS="-Xms256m -Xss512m -Xmx512m -Djava.awt.headless=true -XX:MaxPermSize=256m -server -Daj.weaving.verbose=true -Dorg.aspectj.weaver.loadtime.configuration=META-INF/aop.xml -Dorg.aspectj.weaver.showWeaveInfo=true -Dorg.aspectj.tracing.enabled=true -Dorg.aspectj.tracing.factory=default"
 
 However, JBOSS with AspectJ is not working for me in JBoss 5.1
 
