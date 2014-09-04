@@ -12,7 +12,7 @@
 	<context:annotation-config />
 	
 	<!-- vvvv Following lines enable Spring AOP -->
-	<aop:aspectj-autoproxy />	
+<!-- 	<aop:aspectj-autoproxy />	 -->
 	<!-- ^^^^ -->
 	
 	<!-- vvvv Following lines enable AspectJ AOP -->
