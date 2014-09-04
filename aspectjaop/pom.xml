@@ -36,7 +36,7 @@
                 	<aspectDirectory>src/main/aspects</aspectDirectory> 
                 	<aspectLibraries>
 					   <aspectLibrary>
-					       <groupId>com.tonitassani.aopexperiment</groupId>
+					       <groupId>${project.groupId}</groupId>
 					       <artifactId>module</artifactId>
 					   </aspectLibrary>
 					   <aspectLibrary>
@@ -54,7 +54,7 @@
                 	</sources>
                 	<weaveDependencies>
                 		<weaveDependency>
-                			<groupId>com.tonitassani.aopexperiment</groupId>
+                			<groupId>${project.groupId}</groupId>
                 			<artifactId>module</artifactId>
                 		</weaveDependency>
                 	</weaveDependencies>
@@ -91,7 +91,7 @@
 <!-- 			<scope>compile</scope> -->
 <!-- 		</dependency>         -->
 		<dependency>
-			<groupId>com.tonitassani.aopexperiment</groupId>
+			<groupId>${project.groupId}</groupId>
             <artifactId>module</artifactId>
             <version>${project.version}</version>
 		</dependency>

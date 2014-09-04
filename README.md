@@ -26,6 +26,10 @@ The execution including the JavaAgent in the LTW example is managed in the `pom.
 
 * **webapp**: A Web application using the module. It has only be tested in JBoss 5.1.0.GA. LTW is not working.
 
+* **module-woven**: Generates module code with aspects inside using AspectJ's Compile Time Weaving (CTW).
+
+* **app-woven**: Defines the profile `exec-app-woven` that executes `app` with the woven module.
+
 Executing
 ---------
 
@@ -110,7 +114,11 @@ Just for debugging JBOSS and seeing what is being weaved I have tried different 
 
 	export JAVA_OPTS="-Xms256m -Xss512m -Xmx512m -Djava.awt.headless=true -XX:MaxPermSize=256m -server -Daj.weaving.verbose=true -Dorg.aspectj.weaver.loadtime.configuration=META-INF/aop.xml -Dorg.aspectj.weaver.showWeaveInfo=true -Dorg.aspectj.tracing.enabled=true -Dorg.aspectj.tracing.factory=default"
 
-However, JBOSS with AspectJ is not working for me in JBoss 5.1
+However, JBOSS with AspectJ is not working for me in JBoss 5.1.
 
-	
+Examples
+--------
+
+* [AspectJ Examples](https://github.com/jbellmann/aspectj-examples). Interesting POM for CTW.
+* [AspectJ more Examples](https://github.com/jesperfj/tomcat7-maven-plugin-sample/blob/master/pom.xml)	
 	

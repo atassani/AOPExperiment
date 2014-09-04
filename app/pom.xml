@@ -25,7 +25,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 			    <configuration>
                     <argLine>
-                        -javaagent:${settings.localRepository}/org/springframework/spring-instrument/${spring.version}/spring-instrument-${spring.version}.jar
+                        -javaagent:${settings.localRepository}/org/springframework/spring-instrument/${version.spring}/spring-instrument-${version.spring}.jar
                     </argLine>
                 </configuration>
 			</plugin>
@@ -42,7 +42,7 @@
 			</properties>
 			<dependencies>
 				<dependency>
-					<groupId>com.tonitassani.aopexperiment</groupId>
+					<groupId>${project.groupId}</groupId>
 					<artifactId>springaop</artifactId>
 					<version>${project.version}</version>
 				</dependency>
@@ -65,7 +65,7 @@
 			<id>aspectjaop</id>
 			<properties>
 				<springfile>/applicationContext_aspectjaop.xml</springfile>
-				<javaagent.property>-javaagent:${settings.localRepository}/org/springframework/spring-instrument/${spring.version}/spring-instrument-${spring.version}.jar</javaagent.property>
+				<javaagent.property>-javaagent:${settings.localRepository}/org/springframework/spring-instrument/${version.spring}/spring-instrument-${version.spring}.jar</javaagent.property>
 			</properties>
 			<build>
 				<plugins>
@@ -89,7 +89,7 @@
 			</build>
 			<dependencies>
 				<dependency>
-					<groupId>com.tonitassani.aopexperiment</groupId>
+					<groupId>${project.groupId}</groupId>
 					<artifactId>aspectjaop</artifactId>
 					<version>${project.version}</version>
 				</dependency>
@@ -125,6 +125,51 @@
 				</dependency>							
 			</dependencies>	
 		</profile>
+		
+		<profile>
+			<id>aspectjaopCTW</id>
+			<properties>
+				<springfile>/applicationContext.xml</springfile>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>aspectjaopCTW</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+				</dependency>
+<!-- 				<dependency> -->
+<!-- 					<groupId>org.springframework</groupId> -->
+<!-- 					<artifactId>spring-aspects</artifactId> -->
+<!-- 				</dependency> -->
+<!-- 				<dependency> -->
+<!-- 					<groupId>org.springframework</groupId> -->
+<!-- 					<artifactId>spring-aop</artifactId> -->
+<!-- 				</dependency> -->
+<!-- 				<dependency> -->
+<!-- 					<groupId>org.aspectj</groupId> -->
+<!-- 					<artifactId>aspectjrt</artifactId> -->
+<!-- 				</dependency> -->
+<!-- 				<dependency> -->
+<!-- 					<groupId>org.aspectj</groupId> -->
+<!-- 					<artifactId>aspectjweaver</artifactId> -->
+<!-- 				</dependency>		 -->
+<!-- 				<dependency> -->
+<!-- 					<groupId>cglib</groupId> -->
+<!-- 					<artifactId>cglib-nodep</artifactId> -->
+<!-- 					<version>3.1</version> -->
+<!-- 					<scope>compile</scope> -->
+<!-- 				</dependency>  -->
+<!-- 				<dependency>  -->
+<!-- 		  			<groupId>org.springframework</groupId>  -->
+<!-- 		  			<artifactId>spring-instrument</artifactId>  -->
+<!-- 				</dependency>							 -->
+			</dependencies>	
+		</profile>
+		
 		
         <profile>
             <id>exec-app</id>
@@ -187,10 +232,10 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>com.tonitassani.aopexperiment</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>module</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency>	
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>

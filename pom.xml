@@ -8,14 +8,14 @@
 	<name>AOP Experiment - parent</name>
 
     <properties>
-        <java.version>1.6</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring.version>3.2.3.RELEASE</spring.version>
-        <javax.inject.version>1</javax.inject.version>
-        <junit.version>4.11</junit.version>
-        <log4j.version>1.2.15</log4j.version>
-        <aspectj.version>1.7.3</aspectj.version>
+        <version.java>1.6</version.java>
+        <version.spring>3.2.3.RELEASE</version.spring>
+        <version.javax.inject>1</version.javax.inject>
+        <version.junit>4.11</version.junit>
+        <version.log4j>1.2.15</version.log4j>
+        <version.aspectj>1.7.3</version.aspectj>
         <javaagent.property>-Ddummy=d</javaagent.property>
         <springfile>/applicationContext.xml</springfile>
     </properties>
@@ -24,7 +24,9 @@
         <module>module</module>
         <module>aspectjaop</module>
         <module>springaop</module>
+        <module>module-woven</module>        
         <module>app</module>
+        <module>app-woven</module>
         <module>webapp</module>
     </modules>
     
@@ -36,8 +38,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>2.3.2</version>
                     <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
+                        <source>${version.java}</source>
+                        <target>${version.java}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>                    
                 </plugin>
@@ -52,7 +54,12 @@
 							<version>2.14</version>
 					 	</dependency>
 					</dependencies>
-				</plugin>					 						              
+				</plugin>	
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>aspectj-maven-plugin</artifactId>
+					<version>1.5</version>
+				</plugin>								 						              
             </plugins>
         </pluginManagement>
     </build>
@@ -62,68 +69,68 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-beans</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context-support</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aop</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aspects</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>			
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-instrument</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>	
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-expression</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>	
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-web</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>	
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 			</dependency>	
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
-				<version>${spring.version}</version>
+				<version>${version.spring}</version>
 				<scope>test</scope>
 			</dependency>		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
+			<version>${version.log4j}</version>
 			<scope>provided</scope>
 			<exclusions>
 				<exclusion>
@@ -147,23 +154,23 @@
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
-				<version>${javax.inject.version}</version>
+				<version>${version.javax.inject}</version>
 			</dependency>      
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
+				<version>${version.junit}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjrt</artifactId>
-				<version>${aspectj.version}</version>
+				<version>${version.aspectj}</version>
 			</dependency>
  			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjweaver</artifactId>
-				<version>${aspectj.version}</version>
+				<version>${version.aspectj}</version>
 			</dependency>
         </dependencies>
     </dependencyManagement>        

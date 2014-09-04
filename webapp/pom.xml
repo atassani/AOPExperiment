@@ -59,7 +59,7 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>com.tonitassani.aopexperiment</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>module</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -132,7 +132,7 @@
 
 		<!-- AOP Available -->
 		<dependency>
-			<groupId>com.tonitassani.aopexperiment</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>springaop</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -147,7 +147,7 @@
 		
 		<!-- AspectJ AOP -->
 <!-- 		<dependency> -->
-<!-- 			<groupId>com.tonitassani.aopexperiment</groupId> -->
+<!-- 			<groupId>${project.groupId}</groupId> -->
 <!-- 			<artifactId>aspectjaop</artifactId> -->
 <!-- 			<version>${project.version}</version> -->
 <!-- 		</dependency> -->

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>parent</artifactId>
+		<groupId>com.tonitassani.aopexperiment</groupId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>app-woven</artifactId>
+	<packaging>pom</packaging>
+	
+	<profiles>
+        <profile>
+            <id>exec-app-woven</id>
+            <build>
+                <plugins>
+		            <plugin>
+		                <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-antrun-plugin</artifactId>
+		                <version>1.7</version>
+		            	<executions>
+		            		<execution>
+		            			<id>print-classpath</id>
+		            			<phase>install</phase>
+		            			<configuration>
+			            			<target>
+			            				<property name="compile_classpath" refid="maven.compile.classpath"/>
+			            				<property name="runtime_classpath" refid="maven.runtime.classpath"/>
+			            				<property name="test_classpath"    refid="maven.test.classpath"/>
+			            				<property name="plugin_classpath"  refid="maven.plugin.classpath"/>
+			            				<echo message="compile classpath: ${compile_classpath}" />
+			            				<echo message="runtime classpath: ${runtime_classpath}" />
+			            				<echo message="test    classpath: ${test_classpath}" />
+			            				<echo message="plugin  classpath: ${plugin_classpath}" />
+			            			</target>
+		            			</configuration>
+		            			<goals>
+		            				<goal>run</goal>
+		            			</goals>
+		            		</execution>
+		            	</executions>
+		            </plugin>                
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.1.1</version>
+                        <executions>
+                            <execution>
+                            	<phase>install</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                        	<executable>java</executable>
+                            <mainClass>com.tonitassani.aopexperiment.app.App</mainClass>
+                            <arguments>
+                                <argument>${javaagent.property}</argument> 
+                                <argument>-cp</argument>
+              					<classpath/>
+                                <argument>com.tonitassani.aopexperiment.app.App</argument>
+                                <argument>${springfile}</argument>                                
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>		
+	</profiles>
+	
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>app</artifactId>
+			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>module</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+			
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>module-woven</artifactId>
+			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>module</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>aspectjaop</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>	
+	</dependencies>
+</project>
